@@ -1,0 +1,58 @@
+print("Calculadora de Indice de Masa Corporal (IMC)")
+#paso 1:Capturar datos personale
+nombre = input("Introduce tu nombre:").strip()
+apellido_paterno = input("Introduce tu apellido paterno:").strip()
+apellido_materno = input("Introduce tu apellido materno:").strip()
+
+#paso 2:Validar y capturar edad, peso y estatura
+while True:
+  try:
+      edad=int(input("Introduce tu edad:").strip())
+      if edad<=0:
+            print("Error: La edad debe ser un numero positivo.")
+            continue
+      break
+  except ValueError:
+      print("Error: debes ingresar un numero entero valido para la edad.")
+
+while True:
+    try:
+        peso = float(input("Introduce tu peso en kg:").strip())
+        if peso<=0:
+            print("Error:El peso debeser un numero positivo.")
+            continue
+        break
+    except ValueError:
+        print("Error: Debes ingresar un numero valido para el peso.")
+
+while True:
+    try:
+        estatura = float(input("Introduce tu estatura en metros:").strip())
+        if estatura<=0:
+            print("error: La estatura debe ser un numero positivo.")
+            continue 
+        break
+    except ValueError:
+        print("Error: Debes ingresar un numero valido para la estatura,")
+
+#paso 3: Calcular el IMC
+imc = peso / (estatura ** 2)
+
+#paso 4: Mostrar resultados
+print("\nResultados:")
+print(f"Nombre:{nombre} {apellido_paterno} {apellido_materno}")
+print(f"Edad:{edad} años")
+print(f"Peso:{peso} kg")
+print(f"Estatura:{estatura} m")
+print(f"Indice de Masa Corporal(IMC): {imc:.2f}")
+
+#paso 5: Clasificar el IMC segun los valores estamdar
+if imc <18.5:
+   print("Clasificacion: Bajo peso")
+elif 18.5<= imc <24.9:
+   print("Clasificasion: Peso normal")
+elif 25<= imc <29.9:
+   print("Clasificacion: Sobrepeso")
+else:
+   print("Clasificacion: Obesidad")
+        
